@@ -23,6 +23,7 @@ The first line of your `.txt` files require:
 * A date in ISO 8601 format, denoted by a `+date` tag
 
 Note that the title and date tags can go in any order, so long as they are on the first line of your `.txt` file.
+
 An example `.txt` file:
 ```
 +title My first gemlog! +date 2023-04-21
