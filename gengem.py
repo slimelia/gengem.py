@@ -59,7 +59,7 @@ if __name__ == "__main__":
         gemLinks.append(f'=> {filename} {post["date"]} - {post["title"]}')
         feedEntry = feedGen.add_entry()
         feedEntry.title(post['title'])
-        feedEntry.link(href=f'{rootURL}/posts/{filename}',rel='alternate')
+        feedEntry.link(href=f'{rootURL}/{filename}',rel='alternate')
         feedEntry.updated(f'{post["date"]}{TIMESTAMP_STRING}')
         feedEntry.id(f'{rootURL}/posts/{filename}')
         
