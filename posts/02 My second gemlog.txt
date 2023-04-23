@@ -1,0 +1,4 @@
++title My second gemlog! +date 2023-04-22
+Hi everyone! This is my second gemlog.
+Exciting stuff!
+Anyway, bye!
