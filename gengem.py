@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 
 import re
+import sys
 from configparser import ConfigParser
 from pathlib import Path
 from feedgen.feed import FeedGenerator
 
 if __name__ == "__main__":
+    if sys.version_info < (3,7):
+        raise SystemError('Python version must be 3.7 or higher')
+    
     TIMESTAMP_STRING = 'T12:00:00Z'
     config = ConfigParser()
     config.read('gengemConfig.cfg')
