@@ -3,6 +3,11 @@ Simple Python script to generate a Gemini gemlog and accompanying Atom feed.
 ## Required libraries
 * [feedgen](https://pypi.org/project/feedgen/)
 * That's it 😌
+Install with
+```bash
+pip install -r requirements.txt
+```
+*Note: depending on your system `pip` may need to be replaced with `pip3`, `python -m pip` or `python3 -m pip`.*
 
 ## Usage
 ### Initial setup
