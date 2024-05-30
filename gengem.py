@@ -45,21 +45,20 @@ if __name__ == "__main__":
         with open(post, 'r', encoding='utf-8') as postFile:
             properties: str = postFile.readline()
             body: str = postFile.read()
-        try:
-            assert (postTitle := re.search(r'(?<=\+title\s).*?(?=\s\+|$)',
-                                           properties)) is not None
-            assert (postDate := re.search(r'(?<=\+date\s).*?(?=\s\+|$)',
-                                          properties)) is not None
+        if ((postTitle := re.search(r'(?<=\+title\s).*?(?=\s\+|$)',
+             properties)) is not None
+            and (postDate := re.search(r'(?<=\+date\s).*?(?=\s\+|$)',
+                 properties)) is not None):
             posts[('posts/' +
-                  str(post)[len(gemlogPath) + 1:str(post).rfind('.txt')] +
-                  '.gmi').replace(' ', '-')] = {
-                'title': postTitle.group(),
-                'date': postDate.group(),
-                'body': body
-            }
-        except AssertionError:
-            print(f'The .txt file {post} is missing +title and/or +date'
-                  ' tags in the first line.')
+                   str(post)[len(gemlogPath) + 1:str(post).rfind('.txt')] +
+                   '.gmi').replace(' ', '-')] = {
+                        'title': postTitle.group(),
+                        'date': postDate.group(),
+                        'body': body
+                }
+        else:
+            raise ValueError(f'The .txt file {post} is missing +title and/or'
+                             ' +date tags in the first line.')
 
     posts = dict(sorted(((filename,
                           postItem) for filename, postItem in posts.items()),
